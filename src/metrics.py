@@ -32,9 +32,20 @@ def intaktStad(df):
 # Intäkt per kategori /Milda
 def income_by_category(df):
     income_by_cat = df.groupby('category')['revenue'].sum().reset_index()
+    max_cat_name = income_by_cat['category'][income_by_cat['revenue'].idxmax()]
+    max_cat_value = income_by_cat['revenue'].max()
+
+    print(f"Intäkt per kategori:\n{income_by_cat}")
+    print(f"Tabellen visar intäkter per kategori.\nDen högsta intäkten är i kategorien {max_cat_name} {max_cat_value} kr.\n")
     return income_by_cat
 
 # Intäkt per stad /Milda
 def income_by_city(df):
     income_city = df.groupby('city')['revenue'].sum().reset_index()
+    max_city_name = income_city['city'][income_city['revenue'].idxmax()]
+    max_city_value = income_city['revenue'].max()
+    
+
+    print(f"Intäkt per stad:\n{income_city}")
+    print(f"Tabellen visar intäkter per stad.\n{max_city_name} har den högsta intäkten {max_city_value} kr.")
     return income_city

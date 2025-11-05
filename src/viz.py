@@ -6,16 +6,19 @@ from src import metrics, io_utils
 # försäljning över tid (linje/månad)
 def line_sales_over_time(df):
     df['date'] = pd.to_datetime(df['date']) #https://www.youtube.com/watch?v=vnTWXn9LtHM
-    df['month'] = df['date'].dt.month_name()
-    sales_by_mnth = df.groupby('month')['revenue'].sum().reset_index()
+    df['month'] = df['date'].dt.month
+    df['month_name'] = df['date'].dt.month_name()
+    sales_by_mnth = df.groupby(['month', 'month_name'])['revenue'].sum().reset_index().sort_values('month')
 
     fig, ax = plt.subplots(figsize=(9, 4))
-    ax.plot(sales_by_mnth['month'], sales_by_mnth['revenue'], marker='o', linestyle="-")
-    ax.set_xlabel("Month")
-    ax.set_ylabel("Revenue")
-    ax.set_title("Sales over time by month")
+    ax.plot(sales_by_mnth['month_name'], sales_by_mnth['revenue'], marker='o', linestyle="-")
+    ax.set_xlabel("Månad")
+    ax.set_ylabel("Inkomst")
+    ax.set_title("Försäljning under första halvåret (per månad)")
     ax.grid()
     plt.show()
+    print(f"Diagrammet visar hur intäkterna förändras från januari till june.\nVi ser en ökning av försäljningen från mars till maj, medan intäkterna minskar från januari till mars och från maj till june.")
+
 
 
 def barKategori(df):
