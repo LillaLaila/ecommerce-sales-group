@@ -1,8 +1,6 @@
 import pandas as pd
 from src import io_utils
 
-# df = pd.read_csv("ecommerce_sales.csv")
-
 
 def mean(df):
     print("Medelvärde per order är: ", df["revenue"].mean().round(2),"kr.")
@@ -21,10 +19,6 @@ def top_3(df):
     print(top_3)
 
 
-def purchasesCategory(df):
-    print(df["category"].value_counts())
-
-
 def intaktStad(df):
     
     intakt_per_stad = (df.groupby("city")["revenue"]
@@ -33,3 +27,22 @@ def intaktStad(df):
                    .reset_index()
                     )
     return intakt_per_stad
+
+# Total intäkt /Ben
+
+
+
+
+# Totalt antal enheter /Ben
+
+
+
+# Intäkt per kategori /Milda
+def income_by_category(df):
+    income_by_cat = df.groupby('category')['revenue'].sum().reset_index()
+    return income_by_cat
+
+# Intäkt per stad /Milda
+def income_by_city(df):
+    income_city = df.groupby('city')['revenue'].sum().reset_index()
+    return income_city
