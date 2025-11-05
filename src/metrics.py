@@ -28,14 +28,6 @@ def intaktStad(df):
                     )
     return intakt_per_stad
 
-# Total intäkt /Ben
-
-
-
-
-# Totalt antal enheter /Ben
-
-
 
 # Intäkt per kategori /Milda
 def income_by_category(df):
