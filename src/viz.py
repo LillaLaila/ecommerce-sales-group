@@ -31,6 +31,8 @@ def barKategori(df):
     plt.title("Antal köp per kategori")
     plt.tight_layout()
     plt.show()
+    print("Det här diagrammet visar vilka kategorier som alla varor är uppdelade i samt hur många registrerade köp per kategori.\n"
+          "Diagramet visar att elektronik, kläder och heminredning är top 3 mest köpta kategorierna. Medan skönhet och leksaker säljs markant mindre.\n")
 
 def barStader(df):
     staderIntakt = metrics.intaktStad(df)
@@ -45,6 +47,8 @@ def barStader(df):
     plt.grid(axis="y")
     plt.tight_layout()
     plt.show()
+    print("Diagramet visar intäkt per stad.\n"
+          "Stockholm har den största intäkten, följt av Göteborg. Västerås står för den lägsta intäkten.")
 
 
 def barintaktkategori(df):
