@@ -45,7 +45,7 @@ def barStader(df):
     plt.grid(axis="y")
     plt.tight_layout()
     plt.show()
-
+  
 
 def barintaktkategori(df):
     income_by_cat =metrics.income_by_category(df)
