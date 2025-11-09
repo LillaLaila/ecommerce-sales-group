@@ -45,3 +45,19 @@ def barStader(df):
     plt.grid(axis="y")
     plt.tight_layout()
     plt.show()
+
+
+def barintaktkategori(df):
+    income_by_cat =metrics.income_by_category(df)
+    income_by_cat["revenue"] = pd.to_numeric(income_by_cat["revenue"], errors="coerce")
+    income_by_cat["revenue"] = income_by_cat["revenue"] /1_000_000
+
+    plt.figure(figsize=(8, 5))
+    plt.bar(income_by_cat["category"], income_by_cat["revenue"], color="skyblue", edgecolor = "black")
+    plt.ylabel("Intäkt (miljoner kr)")
+    plt.xlabel("Kategori")
+    plt.title("Intäkt per kategori")
+    plt.grid(axis="y", linestyle = "--", alpha=0.7)
+    plt.tight_layout()
+    plt.show()
+    print("Diagrammet visar totala intäkter per kategori. ")

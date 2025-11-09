@@ -49,3 +49,16 @@ def income_by_city(df):
     print(f"Intäkt per stad:\n{income_city}")
     print(f"Tabellen visar intäkter per stad.\n{max_city_name} har den högsta intäkten {max_city_value} kr.")
     return income_city
+
+
+#Totala intäkter /Ben
+def total_revenue(df):
+    total_rev = df["revenue"].sum().round(2)
+    print(f"Totala intäkter är: {total_rev} kr.")
+    return total_rev
+
+#Totalt antal enheter /Ben
+def total_units(df):
+    total_units = df["units"].sum()
+    print(f"Totalt antal sålda enheter är: {total_units} st.")
+    return total_units
